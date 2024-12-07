@@ -1,0 +1,1 @@
+console.log(Array.from(require('fs').readFileSync('../Inputs/input.txt','utf8').matchAll(/mul\((\d{1,3}),(\d{1,3})\)/g) as RegExpMatchArray[]).reduce((sum, x) => sum + parseInt(x[1]) * parseInt(x[2]), 0))

@@ -1,0 +1,1 @@
+console.log(Array.from(require('fs').readFileSync('../Inputs/input.txt','utf8').matchAll(/mul\((\d{1,3}),(\d{1,3})\)|\b(do|don't)\(\)/g) as RegExpMatchArray[]).reduce(([sum, enable]: [number, boolean], x): [number, boolean] => [enable && !x[3] ? sum + parseInt(x[1]) * parseInt(x[2]) : sum, x[3] === "do" ? true : x[3] === "don't" ? false : enable], [0, true])[0])
